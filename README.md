@@ -4,7 +4,7 @@ FCC Build Wikipedia Viewer Project
 ## Project Title
 Build Wikipedia Viewer
 
-##Objective
+## Objective
 Build a CodePen.io app.
 
 ## Getting Started
