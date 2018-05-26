@@ -1,7 +1,3 @@
-/**
- * set JSHint not to flag these variables as 'unresolved variable'
- *  @param data.query.pages
- */
 
 'use strict';
 function wikipediaViewerMain() {
@@ -31,8 +27,8 @@ function wikipediaViewerMain() {
 				continue;
 			}
 			str = JSON.stringify(jsonData[prop], null, 4);        // convert JSON entry to a string.
-			var $div = $('<div>', {id: prop, class: 'response'}); // set format for new div.
-			$('#response-area').append($div);                     // create new div in container.
+			var $div = $('<div>', {id: prop, class: 'results'}); // set format for new div.
+			$('#results').append($div);                     // create new div in container.
 			startSub = str.indexOf('extract');                    // search the string for start of article summary.
 			str = '<p>' + str.substr(startSub + 11).split('</p>')[0] + '</p>';  // build article summary.
 			str = str.replace(/\\(?!\n)/g, '');    // remove all backslash characters not part of a newline.
@@ -63,7 +59,7 @@ function wikipediaViewerMain() {
 
 	/* function clearPreviousResults() removes all the article summary's from the webpage. */
 	function clearPreviousResults() {
-		$('#response-area').children('div').remove();
+		$('#results').children('div').remove();
 	}
 
 	/* function provides an event listener for the random search button, and on a click event does
@@ -100,11 +96,11 @@ function wikipediaViewerMain() {
 
 	/* function detects if a Wikipedia article summary has been clicked, and if so the article is displayed */
 	$('#response-area').click(function (e) {
-		if ($(e.target).parent().closest('div').attr('class') === 'response') { // selects for article text.
+		if ($(e.target).parent().closest('div').attr('class') === 'results') { // selects for article text.
 			var articleID = $(e.target).parent().closest('div').attr('id');     // finds the id of the div.
 			window.open('http://en.wikipedia.org/wiki?curid=' + articleID);     // get article.
 		}
-		else if ($(e.target).closest('div').attr('class') === 'response') {   // else selects border area around text.
+		else if ($(e.target).closest('div').attr('class') === 'results') {   // else selects border area around text.
 			window.open('http://en.wikipedia.org/wiki?curid=' + $(e.target).closest('div').attr('id')); // get article.
 		}
 	});
