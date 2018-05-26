@@ -1,74 +1,110 @@
-/*DISABLE the Horizontal Scroll*/
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    outline: none;
-}
-
-html {
-    font-size: 120%;
-    height: 100%;
-
-}
-
-.clear {
-    display: block;
-}
-
 
 body {
-    color: #222;
-    -webkit-font-smoothing: antialiased;
-    font-family: 'Helvetica', Helvetica, Arial, sans-serif;
+  color: black;
+     -webkit-font-smoothing: antialiased;
+font-family: 'Helvetica', Helvetica, Arial, sans-serif;
     height: auto;
     min-height: 100%;
     background: url('https://s7.postimg.cc/t7874r3x7/White-_Wallpaper-14.jpg') repeat fixed center 114px grey;
     background-size: cover;
 }
 
-p {
-  text-align:center;
-  font-size: 20px;
-  margin-top:100px;
-  margin-left:45%;
-  display:flex;
- 
 }
 
-#main-container{
-  text-align: middle;
-  margin-top:10px;
-  margin-left: 30%;
+.content-wrap {
+  margin-top: 40px;
+}
+
+h1 {
+  font-size: 55px;
+  color: black;
+  font-family: 'Helvetica', Helvetica, Arial, sans-serif;
+  margin-top:10%;
+}
+
+#search {
+  width: 300px;
+  height: 30px;
+  padding-left: 10px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  outline: none;
+  font-size:15px;
+}
+
+.btn-default {
+  margin: 4px;
+  margin-top: 10px;
+  font-size: 16px;
+  border: none;
+  color: black;
+}
+
+.btn-default:hover {
+  opacity: 0.9;
+  color: grey;
+}
+
+button {
+  width: 122px;
+  background-color: green !important;
+  outline: none !important;
+}
+
+#randomResult {
+  display: inline-block;
+  width: 165px;
+  background-color: purple !important;
+  outline: none !important;
+}
+
+/* trying to make the anchors behave like divs */ 
+a {
+  display: block;
+  margin: 10px;
+  padding: 0 50px;
+  padding: 20px;
+  text-align: justify;
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: blue;
+  border-left: 4px none;
+}
+
+.title {
+  margin-bottom: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.text {
+  font-size: 18px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+@media screen and (max-width: 350px) {
+  h1 {
+    font-size: 35px;  
+  }
   
-}
-
-.results {
-    font-family: 'Open Sans', sans-serif;
-    margin: 4px auto;
+  #search {
     width: 100%;
-    text-align: justify;
-    padding: 0 0 0px;
-    font-size: 12px;
-  margin-right: 90%;
-  margin-left: -90%;
- 
+  }
+  
+  .title {
+    font-size: 18px;
+  }
+  
+  .text {
+    font-size: 15px;
+  }
 }
-
-  form {
-        position: relative;  
-        width: 500px;
-        border: 0 solid black;
-    }
-
-    .buttons {
-        left: 40px;
-        margin: 4px auto;
-        padding: 6px 15px;
-      margin-top: -155%;
-    }
-

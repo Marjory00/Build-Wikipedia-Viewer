@@ -26,30 +26,25 @@
   <title>Wikipedia Viewer</title>
 </head>
 <body>
-    <div class="container-fluid text-center">
-      <div class="col-12">
-      <p><h1>Wikipedia Viewer</h1></p></div>
-  <br>
-  <br>
-  <div class="container">
-  <div id="main-container">
-    <div class="col-12">
-    <div id="form-area">
-      <form>
-        <input id="search-box" type="text" placeholder="Search Wikipedia..." required>
-        <input class="buttons" id="search-button" type="button" value="Search">
-        <input class="buttons" id="random-button" type="button" value="Random Search">
-      </form>
-    </div> <!-- end form-area -->
-      <div id="results">
-        <div class="results">
-      </div>
-    </div>
+
+<!--Draft02-->
+<div class="container">
+  <div class="content-wrap text-center">
+    <h1>Wikipedia Viewer</h1>
+    <input id="search" type="text" placeholder="Search Wikipedia">
+    <!--To clear input-field -needs fixing-->
+    
+    <!--END To clear input-field-->
+    <button id="getResult" class="btn btn-default">Search</button>
+    <a id="randomResult" class="btn btn-default" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">Random Search</a>
+  </div>
+  <div class="wrap text-center">
+    <ul>
+    </ul>
   </div>
 </div>
-  <br>
-  <br>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <!--Draft03-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="js/main.js"></script>
   <br>
 </body>
