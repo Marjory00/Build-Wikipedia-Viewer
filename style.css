@@ -57,6 +57,7 @@ button {
   width: 165px;
   background-color: purple !important;
   outline: none !important;
+  
 }
 
 /* trying to make the anchors behave like divs */ 
@@ -107,4 +108,21 @@ ul li {
   .text {
     font-size: 15px;
   }
+}
+
+footer {
+    margin: auto;
+    height: 45px;
+    width: 100%;
+    background-color: grey;/*#1e2127 before*/
+    color: black;/*#ffffff before*/
+    position:relative;
+}
+
+footer span {
+    display:block;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    padding: -1%;
 }
