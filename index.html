@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" >
-
-<head>
-  <meta charset="UTF-8">
-  <title>FCC Build Wikipedia Viewer</title>
-  
-  
-  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
-<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
-<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
-
-      <link rel="stylesheet" href="css/style.css">
-
-  
-</head>
-
-<body>
-
-  1<html lang="en">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,9 +13,53 @@
    <!-- Load font awesome icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  
+ 
 <!--Link to external files-->
  <link rel="index" href="js/index.js">
 <link rel="stylesheet" type="text/css" href="style.css">
+<script>
+
+$(document).ready(function() {
+  $("#getResult").click(function() {
+    // clearing the content of the list
+    $("ul").empty();
+    var search = $("#search").val();
+    $.ajax({
+      type: 'GET',
+      url: 'https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=' + search,
+      dataType: 'jsonp',
+      success: function(result) {
+        console.log(result);
+        var obj = result.query.pages;
+        for (var prop in obj) {
+          $("ul").append('<a target="_blank" href="https://en.wikipedia.org/wiki?curid=' + obj[prop].pageid + '">' + '<li><h3 class="title ">' + obj[prop].title + '</h3><p class="text">' + obj[prop].extract + '</p></li></a>');
+        }
+      }
+    });
+  });
+
+  // starting a search after enter is       //pressed
+  $("#search").keypress(function(e) {
+    if (e.which == 13) {
+      $("#getResult").click();
+    }
+  });
+
+  // removing the outline of the buttons
+  // when clicked
+  $('#getResult, #randomResult').click(function() {
+    $(this).blur();
+  });
+});
+
+//Draft3--sample to remove results need to update-fix//
+
+	/* function clearPreviousResults() removes all the article summary's from the webpage. */
+	function clearPreviousResults() {
+		$('#getResults').children('div').remove();
+	}
+
+</script>
 </head>
 <body>
 
@@ -109,18 +134,4 @@
   </span>
     </footer>
 </body>
-</html>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
-
-  
-
-    <script  src="js/index.js"></script>
-
-
-
-
-</body>
-
 </html>
